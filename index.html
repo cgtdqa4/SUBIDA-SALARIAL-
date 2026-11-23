@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora Subida Bruta — CGT DQA4</title>
+  <title>Calculadora Subida Bruta 2027–2030 — CGT DQA4</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,7 +72,7 @@
         <div>
           <span class="bg-cgt-red text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded">DQA4 Sevilla · Convenio 2026–2030</span>
           <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white mt-0.5">
-            Calculadora de Subida Bruta
+            Calculadora de Subida Salarial Bruta
           </h1>
         </div>
       </div>
@@ -85,7 +85,7 @@
 
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-    <!-- COLUMNA IZQUIERDA: SOLO 3 DATOS ESENCIALES (5 cols) -->
+    <!-- COLUMNA IZQUIERDA: 3 CONTROLES DIRECTOS (5 cols) -->
     <div class="lg:col-span-5 space-y-4">
 
       <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 p-5 space-y-5">
@@ -135,28 +135,31 @@
           </div>
         </div>
 
-        <!-- Paso 3: Pagas y Año -->
-        <div class="pt-4 border-t border-neutral-100 grid grid-cols-2 gap-3">
-          <div>
-            <label for="num-pagas" class="block text-xs font-extrabold uppercase tracking-wider text-neutral-700 mb-1.5">
-              3. Pagas
+        <!-- Paso 3: Selector visual de Año del Convenio -->
+        <div class="pt-4 border-t border-neutral-100">
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-extrabold uppercase tracking-wider text-neutral-700">
+              3. Elige año a consultar
             </label>
-            <select id="num-pagas" class="w-full text-xs font-bold border border-neutral-300 rounded-xl px-2.5 py-2.5 bg-white focus:border-cgt-red focus:outline-none">
-              <option value="12" selected>12 pagas</option>
-              <option value="14">14 pagas</option>
-            </select>
+            <span class="text-[11px] font-semibold text-neutral-500">14 pagas prorrateadas en 12</span>
           </div>
-
-          <div>
-            <label for="convenio-year" class="block text-xs font-extrabold uppercase tracking-wider text-neutral-700 mb-1.5">
-              Año
-            </label>
-            <select id="convenio-year" class="w-full text-xs font-bold border border-neutral-300 rounded-xl px-2.5 py-2.5 bg-white focus:border-cgt-red focus:outline-none">
-              <option value="2027" selected>2027 (Actual)</option>
-              <option value="2028">2028</option>
-              <option value="2029">2029</option>
-              <option value="2030">2030</option>
-            </select>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" data-year="2027" class="year-btn py-2 px-2 rounded-xl border-2 border-cgt-red bg-cgt-red text-white text-center transition cursor-pointer">
+              <div class="text-xs font-black">2027</div>
+              <div class="text-[10px] opacity-90">Actual</div>
+            </button>
+            <button type="button" data-year="2028" class="year-btn py-2 px-2 rounded-xl border-2 border-neutral-200 bg-white text-neutral-800 hover:border-cgt-red text-center transition cursor-pointer">
+              <div class="text-xs font-black">2028</div>
+              <div class="text-[10px] text-neutral-500">+3% conv.</div>
+            </button>
+            <button type="button" data-year="2029" class="year-btn py-2 px-2 rounded-xl border-2 border-neutral-200 bg-white text-neutral-800 hover:border-cgt-red text-center transition cursor-pointer">
+              <div class="text-xs font-black">2029</div>
+              <div class="text-[10px] text-neutral-500">+3% conv.</div>
+            </button>
+            <button type="button" data-year="2030" class="year-btn py-2 px-2 rounded-xl border-2 border-neutral-200 bg-white text-neutral-800 hover:border-cgt-red text-center transition cursor-pointer">
+              <div class="text-xs font-black">2030</div>
+              <div class="text-[10px] text-neutral-500">+3% + Plus</div>
+            </button>
           </div>
         </div>
       </div>
@@ -164,17 +167,17 @@
       <!-- Opciones avanzadas plegadas -->
       <details class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden group">
         <summary class="px-5 py-3.5 cursor-pointer flex items-center justify-between text-xs font-bold text-neutral-700 hover:bg-neutral-50 select-none">
-          <span>Opciones avanzadas (domingos, horas extra, modo convenio)</span>
+          <span>Opciones avanzadas (domingos, horas extra, absorción)</span>
           <span class="text-cgt-red group-open:rotate-180 transition-transform">▼</span>
         </summary>
 
         <div class="p-5 pt-2 space-y-4 border-t border-neutral-100 text-xs">
           <div>
-            <label for="modo-convenio" class="block font-bold text-neutral-700 mb-1">Criterio de aplicación convenio</label>
+            <label for="modo-convenio" class="block font-bold text-neutral-700 mb-1">Criterio aplicación convenio (2028–2030)</label>
             <select id="modo-convenio" class="w-full font-semibold border border-neutral-300 rounded-xl px-3 py-2 bg-white focus:border-cgt-red focus:outline-none">
-              <option value="A" selected>Step Plan + subida Plus Convenio (Recomendado)</option>
-              <option value="B">Solo tablas Step Plan (sin Plus adicional)</option>
-              <option value="C">Step Plan + subida tablas sin absorción + Plus</option>
+              <option value="C" selected>Step Plan 2027 + Subidas anuales Convenio (+3%/año) + Plus</option>
+              <option value="A">Solo Step Plan 2027 + subida Plus Convenio (con absorción)</option>
+              <option value="B">Solo tablas Step Plan 2027 (sin Plus adicional)</option>
             </select>
           </div>
 
@@ -204,37 +207,18 @@
                 class="w-full font-semibold border border-neutral-300 rounded-xl px-3 py-2 focus:border-cgt-red focus:outline-none" />
             </div>
           </div>
-
-          <details class="pt-2 border-t border-neutral-100">
-            <summary class="font-bold text-neutral-600 cursor-pointer">Ver estimación de neto e IRPF 2027</summary>
-            <div class="mt-3 space-y-2 bg-neutral-50 p-3 rounded-xl border border-neutral-200">
-              <div class="flex items-center justify-between gap-2">
-                <label for="irpf-2026" class="text-neutral-700 font-semibold">Tu IRPF actual en 2026 (%):</label>
-                <input id="irpf-2026" type="number" min="0" max="45" step="0.01" value="0"
-                  class="w-20 text-right font-bold border border-neutral-300 rounded-lg px-2 py-1 bg-white" />
-              </div>
-              <div class="flex justify-between text-neutral-700 pt-1">
-                <span>IRPF estimado <span id="neto-year-label">2027</span>:</span>
-                <strong id="est-irpf-2027" class="text-emerald-700">0,00%</strong>
-              </div>
-              <div class="flex justify-between text-neutral-900 font-extrabold text-sm pt-1 border-t border-neutral-200">
-                <span>Neto mensual estimado:</span>
-                <span id="est-neto-mes">1.693,76 €</span>
-              </div>
-            </div>
-          </details>
         </div>
       </details>
     </div>
 
-    <!-- COLUMNA DERECHA: PROTAGONISMO ABSOLUTO A LA SUBIDA BRUTA (7 cols) -->
+    <!-- COLUMNA DERECHA: SUBIDA RESPECTO A 2026 Y EVOLUCIÓN (7 cols) -->
     <div class="lg:col-span-7 space-y-4">
 
-      <!-- Tarjeta Principal: Subida Bruta -->
+      <!-- Tarjeta Principal: Subida Bruta respecto a 2026 -->
       <div class="bg-cgt-black text-white rounded-2xl p-6 sm:p-7 shadow-lg border-b-4 border-cgt-red">
-        <div class="flex items-center justify-between gap-2">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-neutral-400">
-            Tu Subida Bruta en <span id="hero-year">2027</span> (<span id="hero-jornada">100,00%</span> jornada)
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-neutral-300">
+            Subida Bruta en <span id="hero-year" class="text-white underline decoration-cgt-red decoration-2">2027</span> respecto a 2026 (<span id="hero-jornada">100,00%</span>)
           </span>
           <span id="hero-pct" class="bg-cgt-red text-white text-xs sm:text-sm font-black px-3 py-1 rounded-full">
             +7,84%
@@ -243,48 +227,56 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-neutral-800">
           <div>
-            <div class="text-xs text-neutral-400 font-semibold">Subida Bruta al Año</div>
+            <div class="text-xs text-neutral-400 font-semibold">Subida Bruta al Año (vs 2026)</div>
             <div id="hero-subida-anual" class="text-3xl sm:text-4xl font-black text-white mt-1">+1.580,22 €</div>
           </div>
           <div>
-            <div class="text-xs text-neutral-400 font-semibold">Subida Bruta al Mes (<span id="hero-pagas">12</span> pagas)</div>
+            <div class="text-xs text-neutral-400 font-semibold">Subida Bruta al Mes (en 12 pagas)</div>
             <div id="hero-subida-mes" class="text-3xl sm:text-4xl font-black text-red-400 mt-1">+131,69 €</div>
           </div>
         </div>
       </div>
 
-      <!-- Comparativa directa: Antes vs Ahora -->
+      <!-- Comparativa directa: 2026 vs Año Elegido -->
       <div class="grid grid-cols-2 gap-4">
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200 shadow-sm">
-          <div class="text-xs font-bold uppercase tracking-wider text-neutral-500">Bruto 2026 (Antes)</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-neutral-500">Bruto 2026 (Base)</div>
           <div id="card-bruto-anual-2026" class="text-xl sm:text-2xl font-black text-neutral-800 mt-1">20.146,80 €</div>
-          <div class="text-xs text-neutral-500 mt-1"><strong id="card-bruto-mes-2026" class="text-neutral-700">1.678,90 €</strong> / mes</div>
+          <div class="text-xs text-neutral-500 mt-1"><strong id="card-bruto-mes-2026" class="text-neutral-700">1.678,90 €</strong> / mes (prorrateado)</div>
         </div>
 
         <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-cgt-red shadow-sm">
-          <div class="text-xs font-bold uppercase tracking-wider text-cgt-red">Bruto <span id="card-year-label">2027</span> (Nuevo)</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-cgt-red">Bruto <span id="card-year-label">2027</span></div>
           <div id="card-bruto-anual-2027" class="text-xl sm:text-2xl font-black text-neutral-950 mt-1">21.727,02 €</div>
-          <div class="text-xs text-neutral-600 mt-1"><strong id="card-bruto-mes-2027" class="text-neutral-900">1.810,59 €</strong> / mes</div>
+          <div class="text-xs text-neutral-600 mt-1"><strong id="card-bruto-mes-2027" class="text-neutral-900">1.810,59 €</strong> / mes (prorrateado)</div>
         </div>
       </div>
 
-      <!-- Desglose limpio de dónde sale la subida bruta -->
+      <!-- Desglose limpio de la subida respecto a 2026 -->
       <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
         <div class="px-5 py-3.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
-          <h2 class="text-xs font-extrabold uppercase tracking-wider text-neutral-800">¿De dónde sale esta subida bruta?</h2>
+          <h2 class="text-xs font-extrabold uppercase tracking-wider text-neutral-800">Desglose de la subida (<span id="desglose-year">2027</span> vs 2026)</h2>
           <span id="desglose-tramo-label" class="text-xs font-bold text-cgt-red">Tramo &gt; 24 meses</span>
         </div>
 
         <div class="divide-y divide-neutral-100 text-xs sm:text-sm">
-          <div class="px-5 py-3.5 flex items-center justify-between gap-4">
+          <div class="px-5 py-3 flex items-center justify-between gap-4">
             <div>
-              <div class="font-bold text-neutral-900">Subida Step Plan T1</div>
-              <div class="text-xs text-neutral-500">Revisión salarial anual proporcional a tu jornada</div>
+              <div class="font-bold text-neutral-900">Subida Step Plan T1 (2027)</div>
+              <div class="text-xs text-neutral-500">Incremento base respecto a 2026</div>
             </div>
             <div id="diff-step-plan" class="font-extrabold text-emerald-700 shrink-0">+1.340,22 € / año</div>
           </div>
 
-          <div class="px-5 py-3.5 flex items-center justify-between gap-4">
+          <div id="row-convenio-anual" class="px-5 py-3 flex items-center justify-between gap-4 hidden">
+            <div>
+              <div class="font-bold text-neutral-900">Subidas Convenio acumuladas (<span id="sub-conv-years">2028</span>)</div>
+              <div class="text-xs text-neutral-500">+3% anual sobre tablas según acuerdo SERCLA</div>
+            </div>
+            <div id="diff-convenio-anual" class="font-extrabold text-emerald-700 shrink-0">+0,00 € / año</div>
+          </div>
+
+          <div class="px-5 py-3 flex items-center justify-between gap-4">
             <div>
               <div class="font-bold text-neutral-900">Subida Plus Convenio Sevilla</div>
               <div id="sub-plus-convenio" class="text-xs text-neutral-500">De 80 €/mes (2026) a 100 €/mes (2027) × jornada</div>
@@ -292,9 +284,9 @@
             <div id="diff-plus-convenio" class="font-extrabold text-emerald-700 shrink-0">+240,00 € / año</div>
           </div>
 
-          <div id="row-horas-extra" class="px-5 py-3.5 flex items-center justify-between gap-4 hidden">
+          <div id="row-horas-extra" class="px-5 py-3 flex items-center justify-between gap-4 hidden">
             <div>
-              <div class="font-bold text-neutral-900">Subida precio Horas Complementarias (+20%)</div>
+              <div class="font-bold text-neutral-900">Subida Horas Complementarias (+20%)</div>
               <div id="sub-horas-extra" class="text-xs text-neutral-500">De 10,47 €/h a 12,56 €/h</div>
             </div>
             <div id="diff-horas-extra" class="font-extrabold text-emerald-700 shrink-0">+0,00 € / año</div>
@@ -304,6 +296,29 @@
             <span>TOTAL SUBIDA BRUTA ANUAL</span>
             <span id="diff-total-anual" class="text-red-400 text-base">+1.580,22 €</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Tabla resumen rápida 2027–2030 (clicables para cambiar de año) -->
+      <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
+        <div class="px-5 py-3 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-neutral-800">Evolución Convenio 2027–2030 (Pulsa un año)</h3>
+          <span class="text-[11px] text-neutral-500">12 pagas prorrateadas</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-neutral-200 text-neutral-500 uppercase text-[10px] font-extrabold bg-neutral-50/50">
+                <th class="py-2.5 px-4">Año</th>
+                <th class="py-2.5 px-4 text-right">Bruto Anual</th>
+                <th class="py-2.5 px-4 text-right">Bruto / Mes</th>
+                <th class="py-2.5 px-4 text-right">Subida vs 2026</th>
+              </tr>
+            </thead>
+            <tbody id="evolution-tbody" class="divide-y divide-neutral-100">
+              <!-- Rellenado dinámicamente -->
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -327,52 +342,49 @@
       { id: 2, label: 'Más de 24 meses', nuevo: 21487.02 }
     ];
 
+    // En 2027 aplica el Step Plan T1 (21.487,02 €). De 2028 a 2030 aplican las subidas anuales del convenio (+3% cada año) y el Plus Convenio (100 € en 2027-2029, 104 € en 2030).
     const CONVENIO_YEARS = {
-      2027: { factor: 1.03, plusMes100: 100 },
-      2028: { factor: 1.03 * 1.03, plusMes100: 100 },
-      2029: { factor: 1.03 * 1.03 * 1.03, plusMes100: 100 },
-      2030: { factor: 1.03 * 1.03 * 1.03 * 1.03, plusMes100: 104 }
+      2027: { factorDesde2027: 1.00, plusMes100: 100, labelSubida: 'Step Plan 2027' },
+      2028: { factorDesde2027: 1.03, plusMes100: 100, labelSubida: '+3% Convenio' },
+      2029: { factorDesde2027: 1.03 * 1.03, plusMes100: 100, labelSubida: '+3% Convenio' },
+      2030: { factorDesde2027: 1.03 * 1.03 * 1.03, plusMes100: 104, labelSubida: '+3% + Plus 104€' }
     };
+
+    const NUM_PAGAS = 12; // 14 pagas anuales prorrateadas en 12 mensualidades
 
     let state = {
       tramo: 2,
       jornada: 100,
-      numPagas: 12,
       convenioYear: 2027,
-      modoConvenio: 'A',
+      modoConvenio: 'C',
       base2026Full: 20146.80,
       domingosCount: 0,
-      horasComp: 0,
-      irpf2026: 0
+      horasComp: 0
     };
 
     const fmtEuro = (v) => v.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
     const fmtDiff = (v) => (v >= 0 ? '+' : '') + v.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
     const fmtPct = (v) => v.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
 
-    function calcularIRPF2027(brutoAnual) {
-      if (brutoAnual <= 18004) return 0;
-      if (brutoAnual <= 23172) return +(((brutoAnual - 18004) / (23172 - 18004)) * 7.5).toFixed(2);
-      return +Math.min(18, 7.5 + ((brutoAnual - 23172) / 10000) * 4.5).toFixed(2);
-    }
-
-    function recalculate() {
+    function computeYearData(year) {
       const f = state.jornada / 100;
       const tramoObj = STEP_PLAN_2027[state.tramo];
-      const yearObj = CONVENIO_YEARS[state.convenioYear];
+      const yearObj = CONVENIO_YEARS[year];
 
       const base2026 = state.base2026Full * f;
-      let baseNuevaFull = tramoObj.nuevo;
+      const base2027 = tramoObj.nuevo * f;
+
+      let baseYear = base2027;
       let diffPlusConvenio = ((yearObj.plusMes100 - 80) * 12) * f;
 
-      if (state.modoConvenio === 'B') {
+      if (state.modoConvenio === 'C') {
+        baseYear = base2027 * yearObj.factorDesde2027;
+      } else if (state.modoConvenio === 'B') {
         diffPlusConvenio = 0;
-      } else if (state.modoConvenio === 'C') {
-        baseNuevaFull = tramoObj.nuevo * yearObj.factor;
       }
 
-      const baseNueva = baseNuevaFull * f;
-      const diffStepPlan = baseNueva - base2026;
+      const diffStepPlan = base2027 - base2026;
+      const diffConvenioAnual = baseYear - base2027;
 
       const domingosAnual = state.domingosCount * 89.15 * 12;
       const horas2026 = state.horasComp * 10.47 * 12;
@@ -380,69 +392,126 @@
       const diffHoras = horasNuevas - horas2026;
 
       const brutoAnual2026 = base2026 + domingosAnual + horas2026;
-      const brutoAnualNuevo = baseNueva + diffPlusConvenio + domingosAnual + horasNuevas;
+      const brutoAnualYear = baseYear + diffPlusConvenio + domingosAnual + horasNuevas;
 
-      const subidaAnual = brutoAnualNuevo - brutoAnual2026;
+      const subidaAnual = brutoAnualYear - brutoAnual2026;
       const subidaPct = brutoAnual2026 > 0 ? (subidaAnual / brutoAnual2026) * 100 : 0;
 
-      const brutoMes2026 = brutoAnual2026 / state.numPagas;
-      const brutoMesNuevo = brutoAnualNuevo / state.numPagas;
-      const subidaMes = brutoMesNuevo - brutoMes2026;
+      const brutoMes2026 = brutoAnual2026 / NUM_PAGAS;
+      const brutoMesYear = brutoAnualYear / NUM_PAGAS;
+      const subidaMes = brutoMesYear - brutoMes2026;
+
+      return {
+        year,
+        yearObj,
+        tramoObj,
+        brutoAnual2026,
+        brutoAnualYear,
+        brutoMes2026,
+        brutoMesYear,
+        subidaAnual,
+        subidaMes,
+        subidaPct,
+        diffStepPlan,
+        diffConvenioAnual,
+        diffPlusConvenio,
+        diffHoras
+      };
+    }
+
+    function recalculate() {
+      const data = computeYearData(state.convenioYear);
 
       // Hero & Cards
       document.getElementById('hero-year').textContent = state.convenioYear;
       document.getElementById('hero-jornada').textContent = fmtPct(state.jornada);
-      document.getElementById('hero-pct').textContent = (subidaPct >= 0 ? '+' : '') + fmtPct(subidaPct);
-      document.getElementById('hero-subida-anual').textContent = fmtDiff(subidaAnual);
-      document.getElementById('hero-pagas').textContent = state.numPagas;
-      document.getElementById('hero-subida-mes').textContent = fmtDiff(subidaMes);
+      document.getElementById('hero-pct').textContent = (data.subidaPct >= 0 ? '+' : '') + fmtPct(data.subidaPct);
+      document.getElementById('hero-subida-anual').textContent = fmtDiff(data.subidaAnual);
+      document.getElementById('hero-subida-mes').textContent = fmtDiff(data.subidaMes);
 
-      document.getElementById('card-bruto-anual-2026').textContent = fmtEuro(brutoAnual2026);
-      document.getElementById('card-bruto-mes-2026').textContent = fmtEuro(brutoMes2026);
+      document.getElementById('card-bruto-anual-2026').textContent = fmtEuro(data.brutoAnual2026);
+      document.getElementById('card-bruto-mes-2026').textContent = fmtEuro(data.brutoMes2026);
       document.getElementById('card-year-label').textContent = state.convenioYear;
-      document.getElementById('card-bruto-anual-2027').textContent = fmtEuro(brutoAnualNuevo);
-      document.getElementById('card-bruto-mes-2027').textContent = fmtEuro(brutoMesNuevo);
+      document.getElementById('card-bruto-anual-2027').textContent = fmtEuro(data.brutoAnualYear);
+      document.getElementById('card-bruto-mes-2027').textContent = fmtEuro(data.brutoMesYear);
 
       // Desglose
-      document.getElementById('desglose-tramo-label').textContent = `Tramo ${tramoObj.label}`;
-      document.getElementById('diff-step-plan').textContent = fmtDiff(diffStepPlan) + ' / año';
+      document.getElementById('desglose-year').textContent = state.convenioYear;
+      document.getElementById('desglose-tramo-label').textContent = `Tramo ${data.tramoObj.label}`;
+      document.getElementById('diff-step-plan').textContent = fmtDiff(data.diffStepPlan) + ' / año';
+
+      const rowConv = document.getElementById('row-convenio-anual');
+      if (state.convenioYear > 2027 && data.diffConvenioAnual > 0) {
+        rowConv.classList.remove('hidden');
+        document.getElementById('sub-conv-years').textContent = state.convenioYear === 2028 ? '2028' : `2028–${state.convenioYear}`;
+        document.getElementById('diff-convenio-anual').textContent = fmtDiff(data.diffConvenioAnual) + ' / año';
+      } else {
+        rowConv.classList.add('hidden');
+      }
+
       document.getElementById('sub-plus-convenio').textContent =
         state.modoConvenio === 'B'
-          ? 'No incluido en este modo'
-          : `De 80 €/mes (2026) a ${yearObj.plusMes100} €/mes (${state.convenioYear}) × jornada`;
-      document.getElementById('diff-plus-convenio').textContent = fmtDiff(diffPlusConvenio) + ' / año';
+          ? 'No incluido en este criterio'
+          : `De 80 €/mes (2026) a ${data.yearObj.plusMes100} €/mes (${state.convenioYear}) × jornada`;
+      document.getElementById('diff-plus-convenio').textContent = fmtDiff(data.diffPlusConvenio) + ' / año';
 
       const rowHoras = document.getElementById('row-horas-extra');
       if (state.horasComp > 0) {
         rowHoras.classList.remove('hidden');
         document.getElementById('sub-horas-extra').textContent = `${state.horasComp} h/mes (de 10,47 €/h a 12,56 €/h)`;
-        document.getElementById('diff-horas-extra').textContent = fmtDiff(diffHoras) + ' / año';
+        document.getElementById('diff-horas-extra').textContent = fmtDiff(data.diffHoras) + ' / año';
       } else {
         rowHoras.classList.add('hidden');
       }
 
-      document.getElementById('diff-total-anual').textContent = fmtDiff(subidaAnual);
+      document.getElementById('diff-total-anual').textContent = fmtDiff(data.subidaAnual);
 
-      // Estimación neto en desplegable
-      const irpfPct = calcularIRPF2027(brutoAnualNuevo);
-      const ssMes = brutoMesNuevo * 0.0652;
-      const irpfMes = brutoMesNuevo * (irpfPct / 100);
-      const netoMes = brutoMesNuevo - ssMes - irpfMes;
-
-      document.getElementById('neto-year-label').textContent = state.convenioYear;
-      document.getElementById('est-irpf-2027').textContent = fmtPct(irpfPct) + (brutoAnualNuevo <= 18004 ? ' (Exento)' : '');
-      document.getElementById('est-neto-mes').textContent = fmtEuro(netoMes);
+      // Tabla evolución 2027-2030
+      const tbody = document.getElementById('evolution-tbody');
+      tbody.innerHTML = [2027, 2028, 2029, 2030].map((yr) => {
+        const d = computeYearData(yr);
+        const isSelected = yr === state.convenioYear;
+        return `
+          <tr onclick="selectYear(${yr})" class="cursor-pointer transition ${isSelected ? 'bg-cgt-lightred font-bold' : 'hover:bg-neutral-50'}">
+            <td class="py-2.5 px-4 font-extrabold ${isSelected ? 'text-cgt-red' : 'text-neutral-900'}">
+              ${yr} ${yr === 2027 ? '<span class="text-[10px] font-semibold text-neutral-500">(Actual)</span>' : ''}
+            </td>
+            <td class="py-2.5 px-4 text-right text-neutral-800">${fmtEuro(d.brutoAnualYear)}</td>
+            <td class="py-2.5 px-4 text-right text-neutral-800">${fmtEuro(d.brutoMesYear)}</td>
+            <td class="py-2.5 px-4 text-right font-extrabold text-emerald-700">${fmtDiff(d.subidaAnual)} <span class="text-[10px] text-neutral-500">(${fmtDiff(d.subidaMes)}/mes)</span></td>
+          </tr>
+        `;
+      }).join('');
 
       window.latestWhatsappSummary =
-        `✊ *SUBIDA BRUTA CGT — ${state.convenioYear} (DQA4 Sevilla)*
+        `✊ *SUBIDA BRUTA CGT — ${state.convenioYear} vs 2026 (DQA4 Sevilla)*
 ` +
-        `• Antigüedad: ${tramoObj.label} | Jornada: ${fmtPct(state.jornada)}
+        `• Antigüedad: ${data.tramoObj.label} | Jornada: ${fmtPct(state.jornada)}
 ` +
-        `• Subida Bruta Anual: *${fmtDiff(subidaAnual)}* (${(subidaPct >= 0 ? '+' : '') + fmtPct(subidaPct)})
+        `• Subida Bruta Anual: *${fmtDiff(data.subidaAnual)}* (${(data.subidaPct >= 0 ? '+' : '') + fmtPct(data.subidaPct)})
 ` +
-        `• Subida Bruta Mensual (${state.numPagas} pagas): *${fmtDiff(subidaMes)}/mes*
+        `• Subida Bruta Mensual (12 pagas prorrateadas): *${fmtDiff(data.subidaMes)}/mes*
 ` +
-        `• Nuevo Bruto Anual: *${fmtEuro(brutoAnualNuevo)}* (${fmtEuro(brutoMesNuevo)}/mes)`;
+        `• Nuevo Bruto ${state.convenioYear}: *${fmtEuro(data.brutoAnualYear)}/año* (${fmtEuro(data.brutoMesYear)}/mes)`;
+    }
+
+    function selectYear(yr) {
+      state.convenioYear = yr;
+      document.querySelectorAll('.year-btn').forEach((btn) => {
+        const bYear = parseInt(btn.dataset.year, 10);
+        if (bYear === yr) {
+          btn.classList.remove('border-neutral-200', 'bg-white', 'text-neutral-800');
+          btn.classList.add('border-cgt-red', 'bg-cgt-red', 'text-white');
+          btn.querySelector('div:last-child').classList.remove('text-neutral-500');
+          btn.querySelector('div:last-child').classList.add('opacity-90');
+        } else {
+          btn.classList.add('border-neutral-200', 'bg-white', 'text-neutral-800');
+          btn.classList.remove('border-cgt-red', 'bg-cgt-red', 'text-white');
+          btn.querySelector('div:last-child').classList.add('text-neutral-500');
+          btn.querySelector('div:last-child').classList.remove('opacity-90');
+        }
+      });
+      recalculate();
     }
 
     function showToast(msg) {
@@ -463,6 +532,10 @@
         btn.classList.add('border-cgt-red', 'bg-cgt-lightred');
         recalculate();
       });
+    });
+
+    document.querySelectorAll('.year-btn').forEach((btn) => {
+      btn.addEventListener('click', () => selectYear(parseInt(btn.dataset.year, 10)));
     });
 
     const jInput = document.getElementById('jornada-input');
@@ -491,16 +564,6 @@
       btn.addEventListener('click', () => setJornada(btn.dataset.jornada));
     });
 
-    document.getElementById('num-pagas').addEventListener('change', (e) => {
-      state.numPagas = parseInt(e.target.value, 10) || 12;
-      recalculate();
-    });
-
-    document.getElementById('convenio-year').addEventListener('change', (e) => {
-      state.convenioYear = parseInt(e.target.value, 10) || 2027;
-      recalculate();
-    });
-
     document.getElementById('modo-convenio').addEventListener('change', (e) => {
       state.modoConvenio = e.target.value;
       recalculate();
@@ -521,20 +584,12 @@
       recalculate();
     });
 
-    document.getElementById('irpf-2026').addEventListener('input', (e) => {
-      state.irpf2026 = parseFloat(e.target.value) || 0;
-      recalculate();
-    });
-
     document.getElementById('btn-reset').addEventListener('click', () => {
       document.querySelectorAll('.tramo-btn')[2].click();
       setJornada(100);
-      state.numPagas = 12;
-      document.getElementById('num-pagas').value = '12';
-      state.convenioYear = 2027;
-      document.getElementById('convenio-year').value = '2027';
-      state.modoConvenio = 'A';
-      document.getElementById('modo-convenio').value = 'A';
+      selectYear(2027);
+      state.modoConvenio = 'C';
+      document.getElementById('modo-convenio').value = 'C';
       state.base2026Full = 20146.80;
       document.getElementById('base-2026-select').value = '20146.80';
       state.domingosCount = 0;
